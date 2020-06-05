@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <img src="{{ animal.photo.url }}" alt="" height="300" width="600">
+    </div>
+    <div class="row justify-content-center"><h3>Имя: <strong>{{ animal.animal_name }}</strong></h3></div>
+    <div class="row justify-content-center"><h3>Порода: <strong>{{ animal.breed }}</strong></h3></div>
+    <div class="row justify-content-center"><h5>{{ animal.description }}</h5></div>
+</div>
+{% endblock %}

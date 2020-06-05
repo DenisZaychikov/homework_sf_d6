@@ -1,0 +1,12 @@
+.navbar {
+    border: solid 1px black;
+}
+
+.page-footer {
+    border: solid 1px black;
+    background-color: wheat;
+}
+
+.social {
+    font-size: 30px;
+}
