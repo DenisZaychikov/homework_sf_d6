@@ -3,12 +3,16 @@
 
 {% block content %}
 <!-- Main -->
-<h1 class="header  d-flex justify-content-center mt-3">Наши животные</h1>
+<div class="d-flex justify-content-center mt-3 two_btn">
+	<a href="{% url 'add_animal' %}" class="btn btn-secondary mr-5">Добавить питомца</a>
+	<a href="#" class="btn btn-secondary ml-5">Добавить категорию</a>
+</div>
+<h1 class="header d-flex justify-content-center mt-3">Наши животные</h1>
 <div class="container">
 	<div class="row">
 		{% for animal in animals %}
 			<div class="col-sm-4 mt-2">
-				<div class="card" style="width: 15rem;">
+				<div class="card" style="width: 15rem; height: 28rem;">
 				<img class="card-img-top" src="{{ animal.photo.url }}" alt="Card image cap" height="150">
 					<div class="card-body">
 							<h5 class="card-title">{{ animal.animal_name }}</h5>
