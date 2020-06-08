@@ -2,12 +2,7 @@
 {% load static %}
 
 {% block content %}
-<!-- Main -->
-<div class="d-flex justify-content-center mt-3 two_btn">
-	<a href="{% url 'add_animal' %}" class="btn btn-secondary mr-5">Добавить питомца</a>
-	<a href="{% url 'add_animal_type' %}" class="btn btn-secondary ml-5">Добавить категорию</a>
-</div>
-<h1 class="header d-flex justify-content-center mt-3">Наши животные</h1>
+<h1 class="header  d-flex justify-content-center mt-3">Наши животные</h1>
 <div class="container">
 	<div class="row">
 		{% for animal in animals %}
@@ -24,5 +19,4 @@
 		{% endfor %}
 	</div>
 </div>
-<!-- Main -->
 {% endblock %}

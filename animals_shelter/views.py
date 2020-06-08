@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Animal, AnimalType
-from .forms import AddAnimal
+from .forms import AddAnimal, AddAnimalType
 
 
 def home(request):
@@ -36,11 +36,10 @@ def animal_type_list(request, id):
 
 
 def add_animal(request):
-
     if request.method == 'POST':
         form = AddAnimal(request.POST, request.FILES)
         form.save()
-        return redirect('success')
+        return redirect('home')
     else:
         form = AddAnimal()
         animal_types = AnimalType.objects.all()
@@ -51,7 +50,27 @@ def add_animal(request):
         return render(request, 'add_animal.html', context)
 
 
-def success(request):
+def add_animal_type(request):
+    if request.method == 'POST':
+        form = AddAnimalType(request.POST)
+        form.save()
+        return redirect('home')
+    else:
+        form = AddAnimalType()
+        animal_types = AnimalType.objects.all()
+        context = {
+            'form': form,
+            'animal_types': animal_types
+        }
+        return render(request, 'add_animal_type.html', context)
+
+
+def search_animal_breed(request):
+    breed = request.GET.get('breed')
+    animals = Animal.objects.filter(breed=breed).all()
     animal_types = AnimalType.objects.all()
-    context = {'animal_types': animal_types}
-    return render(request, 'success.html', context)
+    context = {
+        'animals': animals,
+        'animal_types': animal_types
+    }
+    return render(request, 'search_animal_breed.html', context)

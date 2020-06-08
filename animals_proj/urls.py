@@ -11,5 +11,6 @@ urlpatterns = [
     path('about_shelter/', views.about_shelter, name='about_shelter'),
     path('animal_type/<int:id>/', views.animal_type_list, name='animal_type'),
     path('add_animal/', views.add_animal, name='add_animal'),
-    path('success/', views.success, name='success')
+    path('add_animal_type/', views.add_animal_type, name='add_animal_type'),
+    path('search_animal_breed/', views.search_animal_breed, name='search_animal_breed')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
